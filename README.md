@@ -1,1 +1,1 @@
-# celeryapp1_project
+# celeryapp1_project - django, celelry, redis simple project
