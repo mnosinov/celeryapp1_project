@@ -5,11 +5,11 @@ from celeryapp.celery import app
 
 
 @app.task
-def hello_world():
+def hello_world(name):
     for i in range(3):
         sleep(2)   # delay for 10 seconds
         print('hello_world task' + str(i))
-    print('Hello World')
+    print('Hello ' + name)
 
 
 @app.task
@@ -21,3 +21,8 @@ def send_email_task():
               datetime.now().strftime('%Y-%m-%d %H:%M:%S'), 'Email body text text asdfasdf.',
               'celerysender@mail.com',
               ['mnosinov@gmail.com', 'bmaratovphoto@gmail.com'])
+
+
+@app.task
+def heart_beat():
+    print('Heart Beat! now is ' + datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
