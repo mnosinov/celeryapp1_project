@@ -7,6 +7,14 @@
   <title>Document</title>
 </head>
 <body>
- <h1>Hello world - response!</h1>
+ 
+ <a href="/">Index page</a>
+ <h1>Celery calls:</h1>
+ <ul>
+	 <li><a href="{% url 'sayhello' %}">Say Hello to Celery</a></li>
+	 <li><a href="{% url 'sendemail' %}">Send E-mail via Celery</a></li>
+	 <li>Heart Beat is beating every 1 minute.</li>
+	 <li>Another background process is scheduled by crontab and running every 15 seconds.</li>
+ </ul>
 </body>
 </html>
