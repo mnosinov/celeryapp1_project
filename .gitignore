@@ -132,3 +132,6 @@ django_cache/**
 
 # ctags
 tags
+
+# redis dump file
+dump.rdb

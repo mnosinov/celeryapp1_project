@@ -1,6 +1,6 @@
 from django.views.generic import TemplateView
 
-from celeryapp.tasks import hello_world
+from celeryapp.tasks import hello_world, send_email_task
 
 
 class IndexView(TemplateView):
@@ -9,4 +9,5 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(IndexView, self).get_context_data(**kwargs)
         hello_world.delay()
+        send_email_task.delay()
         return context
