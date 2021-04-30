@@ -11,10 +11,49 @@
  <a href="/">Index page</a>
  <h1>Celery calls:</h1>
  <ul>
-	 <li><a href="{% url 'sayhello' %}">Say Hello to Celery</a></li>
+	 <li>
+		 <form action="hello" method="post">
+			 {% csrf_token %}
+			 Your name: <input type="text" name="yourname" />
+			 <input type="submit"/>
+			 see hello phrase - as a result in django admin in 
+			 <em>Celery Results > Task results</em>
+		 </form>
+	 </li>
 	 <li><a href="{% url 'sendemail' %}">Send E-mail via Celery</a></li>
+
 	 <li>Heart Beat is beating every 1 minute.</li>
-	 <li>Another background process is scheduled by crontab and running every 15 seconds.</li>
+	 <li>Another background process is scheduled by crontab and running every
+		 15 seconds.</li>
+	 <li><a href="{% url 'last2minstaskresult' %}">
+			 Get last 3mins task result - from TaskResult database table</a></li>
  </ul>
+ <table border=1>
+	 <tr>
+		 <td>task_name:</td>
+		 <td>{{ last_result.task_name }}</td>
+	 </tr>
+	 <tr>
+		 <td>status:</td>
+		 <td>{{ last_result.status }}</td>
+	 </tr>
+	 <tr>
+		 <td>content_type:</td>
+		 <td>{{ last_result.content_type }}</td>
+	 </tr>
+	 <tr>
+		 <td>result:</td>
+		 <td>{{ last_result.result }}</td>
+	 </tr>
+	 <tr>
+		 <td>date_created:</td>
+		 <td>{{ last_result.date_created }}</td>
+	 </tr>
+	 <tr>
+		 <td>date_done:</td>
+		 <td>{{ last_result.date_done }}</td>
+	 </tr>
+ </table>
+ 
 </body>
 </html>

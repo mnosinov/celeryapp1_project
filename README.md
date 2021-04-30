@@ -14,3 +14,11 @@ EMAIL_USE_SSL=False
 EMAIL_PORT=587
 EMAIL_HOST_USER=
 EMAIL_HOST_PASSWORD=
+
+# How to run
+1. django runserver
+2. redis-server
+3. run celery worker
+4. run celery beat
+------------------
+see corresponding sh scripts

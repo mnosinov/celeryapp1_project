@@ -15,7 +15,9 @@ def hello_world_task(name):
     for i in range(3):
         sleep(2)   # delay for 10 seconds
         print('hello_world task' + str(i))
-    print('Hello ' + name)
+    hello_phrase = 'Hello ' + name
+    print(hello_phrase)
+    return hello_phrase
 
 
 @app.task

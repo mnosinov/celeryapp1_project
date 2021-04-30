@@ -17,8 +17,9 @@ class IndexView(TemplateView):
 
 class SayHelloView(View):
 
-    def get(self, request):
-        hello_world_task.delay('Donnald Duck')
+    def post(self, request):
+        yourname = request.POST.get("yourname")
+        hello_world_task.delay(yourname)
         return render(request, 'index.html')
 
 
@@ -32,6 +33,6 @@ class SendEmailView(View):
 class GetLast2minsTaskResultView(View):
 
     def get(self, request):
-        last_result = TaskResult.objects.first()
-        import pdb; pdb.set_trace()
-        return render(request, 'index.html')
+        last_result = TaskResult.objects.filter(
+            task_name='celeryapp.tasks.every_2mins_beat').first()
+        return render(request, 'index.html', {"last_result": last_result})
