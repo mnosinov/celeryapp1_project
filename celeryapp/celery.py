@@ -22,4 +22,8 @@ app.conf.beat_schedule = {
         'task': 'celeryapp.tasks.every_2mins_beat',
         'schedule': crontab(minute='*/2'),
     },
+    #'sample_of_classbased_task_beat_that_runs_every_15mins': {
+    #    'task': 'celeryapp.tasks.SomeClassBasedTask',
+    #    'schedule': crontab(minute='*/15'),
+    #},
 }
