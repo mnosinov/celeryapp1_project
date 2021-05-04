@@ -16,9 +16,9 @@ EMAIL_HOST_USER=
 EMAIL_HOST_PASSWORD=
 
 # How to run
-1. django runserver
+1. django runserver (in vitualenv)
 2. redis-server
-3. run celery worker
-4. run celery beat
+3. run celery worker (in vitualenv)
+4. run celery beat (in vitualenv)
 ------------------
 see corresponding sh scripts
