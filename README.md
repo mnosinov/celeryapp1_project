@@ -20,5 +20,7 @@ EMAIL_HOST_PASSWORD=
 2. redis-server
 3. run celery worker (in vitualenv)
 4. run celery beat (in vitualenv)
+
+test application and watch results in admin panel - django celery results table
 ------------------
 see corresponding sh scripts
