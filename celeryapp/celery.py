@@ -3,7 +3,6 @@ import django
 
 from celery import Celery
 from celery.schedules import crontab
-from django.conf import settings
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'celeryapp1_project.settings')
 django.setup()
@@ -11,6 +10,7 @@ django.setup()
 app = Celery('celeryapp')
 
 app.config_from_object('django.conf:settings')
+app.conf.result_expires = int(os.getenv('CELERY_RESULT_EXPIRES'))   # value in seconds
 app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
