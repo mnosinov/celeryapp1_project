@@ -20,6 +20,8 @@ EMAIL_HOST_USER=
 
 EMAIL_HOST_PASSWORD=
 
+CELERY_RESULT_EXPIRES=120		(2 minutes)
+
 # How to run
 1. django runserver (in vitualenv)
 2. redis-server
